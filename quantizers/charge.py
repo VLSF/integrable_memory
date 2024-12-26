@@ -15,13 +15,12 @@ class charge(eqx.Module):
 
 class l1_charge(charge):
     def __call__(self, u):
-        super().__call__(u, 1)
+        return super().__call__(u, 1)
 
 class l2_charge(charge):
     def __call__(self, u):
-        super().__call__(u, 2)
+        return super().__call__(u, 2)
 
 class l_inf_charge(charge):
     def __call__(self, u):
-        super().__call__(u, jnp.inf)
-
+        return super().__call__(u, jnp.inf)
