@@ -10,7 +10,7 @@ class charge(eqx.Module):
     def __init__(self, key, N, D_in, D_out):
         keys = random.split(key)
         self.loc = random.normal(keys[0], (N, D_in))
-        self.val = random.normal(keys[0], (N, D_out))
+        self.val = random.normal(keys[1], (N, D_out))
 
     def __call__(self, u, p):
         closest_loc = jnp.argmin(jnp.linalg.norm(jnp.expand_dims(u, 0) - self.loc, axis=1, ord=p))
